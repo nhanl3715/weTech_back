@@ -15,7 +15,7 @@ class CartController extends Controller
 		$user_id = $request->user_id;
 
 		$cart1 = DB::table('carts')
-				->join('cart_detail','carts.cart_id','=','cart_detail.cart_id',)
+				->join('cart_detail','carts.cart_id','=','cart_detail.cart_id')
 				->join('product_detail','cart_detail.prodetail_id','=','product_detail.prodetail_id')
 				->join('products','product_detail.product_id','=','products.product_id')
 				->join('users','users.user_id','=','carts.user_id')
@@ -81,7 +81,7 @@ class CartController extends Controller
 		$user_id = $request->user_id;
 
 		$cart1 = DB::table('carts')
-				->join('cart_detail','carts.cart_id','=','cart_detail.cart_id',)
+				->join('cart_detail','carts.cart_id','=','cart_detail.cart_id')
 				->join('product_detail','cart_detail.prodetail_id','=','product_detail.prodetail_id')
 				->join('users','users.user_id','=','carts.user_id')
 				->join('shops','shops.shop_id','=','cart_detail.shop_id')
@@ -91,7 +91,7 @@ class CartController extends Controller
 				->select('cart_detail.shop_id','cart_detail.prodetail_id','product_image.image','shops.shop_name')
 				->get();
 		$cart3 = DB::table('carts')
-				->join('cart_detail','carts.cart_id','=','cart_detail.cart_id',)
+				->join('cart_detail','carts.cart_id','=','cart_detail.cart_id')
 				->join('shops','shops.shop_id','=','cart_detail.shop_id')
 				->where('carts.user_id','=',$user_id)
 				->select('cart_detail.shop_id','shops.shop_name')
